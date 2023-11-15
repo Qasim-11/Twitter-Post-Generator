@@ -11,7 +11,7 @@ consumer_secret = st.secrets["consumer_secret"]
 access_token = st.secrets["access_token"]
 access_token_secret = st.secrets["access_token_secret"]
 
-client = OpenAI(OPENAI_API_KEY)
+client = OpenAI(api_key = OPENAI_API_KEY)
 
 
 # Function to generate text using OpenAI
@@ -28,10 +28,10 @@ def generate_text(prompt):
 
 def create_tweet(text):
     client = tweepy.Client(
-        consumer_key=os.getenv('consumer_key'),
-        consumer_secret=os.getenv('consumer_secret'),
-        access_token=os.getenv('access_token'),
-        access_token_secret=os.getenv('access_token_secret')
+        consumer_key= consumer_key,
+        consumer_secret= consumer_secret,
+        access_token= access_token,
+        access_token_secret= access_token_secret
     )
     response = client.create_tweet(text=text)
     return response
